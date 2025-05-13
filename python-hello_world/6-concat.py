@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# 6-concat.py: prints Welcome to Holberton School!
 str1 = "Welcome to "
 str2 = "Holberton School!"
+# use str1 and str2 to build the welcome message
 print(str1 + str2)
