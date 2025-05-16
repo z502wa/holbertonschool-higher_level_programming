@@ -7,6 +7,6 @@ def delete_at(my_list=[], idx=0):
     """
     if idx < 0 or idx >= len(my_list):
         return my_list
-    # remove the element at the given index without using pop()
+    # delete the item at the given index
     del my_list[idx]
     return my_list
