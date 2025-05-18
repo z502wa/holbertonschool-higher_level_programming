@@ -1,55 +1,32 @@
 #!/usr/bin/python3
-"""
-Module 2-matrix_divided: provides matrix_divided function.
-"""
+# 2-matrix_divided.py
+# Brennan D Baraban <375@holbertonschool.com>
+"""Defines a matrix division function."""
 
 
 def matrix_divided(matrix, div):
-    """
-    Divide all elements of a matrix by a divisor.
+    """Divide all elements of a matrix by a divisor."""
+    # Validate that matrix is non-empty list of lists of numbers
+    if (not isinstance(matrix, list) or matrix == [] or
+            not all(isinstance(row, list) for row in matrix) or
+            not all(isinstance(ele, (int, float))
+                    for row in matrix for ele in row)):
+        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
 
-    Args:
-        matrix (list of lists of int/float): matrix to divide.
-        div (int/float): divisor value.
+    # Ensure all rows have the same length
+    if not all(len(row) == len(matrix[0]) for row in matrix):
+        raise TypeError("Each row of the matrix must have the same size")
 
-    Returns:
-        list of lists of float: new matrix with each element divided and rounded to 2 decimals.
+    # Check that divisor is a number
+    if not isinstance(div, (int, float)):
+        raise TypeError("div must be a number")
 
-    Raises:
-        TypeError: if matrix structure/types are invalid or div is not a number.
-        ZeroDivisionError: if div is zero.
-    """
-    # Validate div is a number
-    if type(div) is not int and type(div) is not float:
-        raise TypeError('div must be a number')
-    # Check for division by zero
+    # Prevent division by zero
     if div == 0:
-        raise ZeroDivisionError('division by zero')
-    # Validate matrix is a list of lists
-    if not isinstance(matrix, list):
-        raise TypeError(
-            'matrix must be a matrix (list of lists) of integers/floats'
-        )
-    # Determine the size of the first row
-    row_length = len(matrix[0])
+        raise ZeroDivisionError("division by zero")
 
-    for tab in matrix:
-        # Check each row is a list
-        if not isinstance(tab, list):
-            raise TypeError(
-                'matrix must be a matrix (list of lists) of integers/floats'
-            )
-        # Check for consistent row size
-        if len(tab) != row_length:
-            raise TypeError('Each row of the matrix must have the same size')
-        for num in tab:
-            # Check each element is int or float
-            if type(num) is not int and type(num) is not float:
-                raise TypeError(
-                    'matrix must be a matrix (list of lists) of integers/floats'
-                )
-    # Perform division and rounding
+    # Compute and return the new matrix with rounded division results
     return [
-        list(map(lambda x: round(x / div, 2), tab))  # divide and round each element
-        for tab in matrix
+        [round(ele / div, 2) for ele in row]
+        for row in matrix
     ]
