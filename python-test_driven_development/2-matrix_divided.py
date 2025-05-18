@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-Module matrix_divided_5.
-Provides a function matrix_divided to divide all elements of a matrix.
+Module 2-matrix_divided.
+Provides the matrix_divided function to divide all elements of a matrix.
 """
 
 def matrix_divided(matrix, div):
@@ -17,17 +17,15 @@ def matrix_divided(matrix, div):
 
     Raises:
         TypeError: if matrix is not a list of lists of ints/floats,
-                   or rows have different sizes,
-                   or div is not a number.
+                   if rows are not of the same size,
+                   or if div is not a number.
         ZeroDivisionError: if div is zero.
     """
-    # проверка делителя
     if not isinstance(div, (int, float)):
         raise TypeError("div must be a number")
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
-    # проверка структуры матрицы
     if (not isinstance(matrix, list) or
         matrix == [] or
         not all(isinstance(row, list) for row in matrix)):
