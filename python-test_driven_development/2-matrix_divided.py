@@ -1,17 +1,21 @@
 #!/usr/bin/python3
-# 2-matrix_divided.py
-# Brennan D Baraban <375@holbertonschool.com>
+
+
 """Defines a matrix division function."""
 
 
 def matrix_divided(matrix, div):
     """Divide all elements of a matrix by a divisor."""
     # Validate that matrix is non-empty list of lists of numbers
-    if (not isinstance(matrix, list) or matrix == [] or
-            not all(isinstance(row, list) for row in matrix) or
-            not all(isinstance(ele, (int, float))
-                    for row in matrix for ele in row)):
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+    if (not isinstance(matrix, list)
+            or matrix == []
+            or not all(isinstance(row, list) for row in matrix)
+            or not all(isinstance(ele, (int, float))
+                       for row in matrix
+                       for ele in row)):
+        raise TypeError(
+            "matrix must be a matrix (list of lists) of integers/floats"
+        )
 
     # Ensure all rows have the same length
     if not all(len(row) == len(matrix[0]) for row in matrix):
