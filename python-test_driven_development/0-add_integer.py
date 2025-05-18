@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 """
-Module 0-add_integer.
-This module provides a function to add two integers.
-The function casts floats to ints.
-It raises TypeError for non-integer inputs.
-It returns the integer sum of a and b.
+Module add_integer_3.
+
+Provides a function to add two integers.
+Casts floats to ints and raises TypeError for non-integer inputs.
 """
 
 def add_integer(a, b=98):
     """
     Adds two integers.
+
     Casts floats to ints before addition.
     Raises TypeError for non-integer inputs.
     """
