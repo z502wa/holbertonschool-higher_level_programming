@@ -1,18 +1,30 @@
 #!/usr/bin/python3
-"""Module add_integer_3.
-This module provides the add_integer function.
-It casts floats to ints and raises TypeError on invalid types.
-Returns the sum of two integer values.
+"""
+Module add_integer: perform addition of two values.
+Casts float inputs to integers before addition.
+Raises TypeError for non-numeric inputs.
 """
 
 
 def add_integer(a, b=98):
-    """Add two integers after casting floats to ints.
-    Raises TypeError for non-int or non-float inputs.
     """
-    if not isinstance(a, (int, float)):
-        raise TypeError("a must be an integer")
-    if not isinstance(b, (int, float)):
-        raise TypeError("b must be an integer")
+    Add two numbers after converting floats to ints.
 
-    return int(a) + int(b)
+    Args:
+        a (int or float): first operand.
+        b (int or float): second operand (default 98).
+
+    Returns:
+        int: sum of converted integer values.
+
+    Raises:
+        TypeError: if a or b is not int or float.
+    """
+    if not isinstance(a, (int, float)):  # validate operand a
+        raise TypeError("a must be an integer")
+    if not isinstance(b, (int, float)):  # validate operand b
+        raise TypeError("b must be an integer")
+    try:
+        return int(a) + int(b)
+    except OverflowError:
+        raise OverflowError("float overflow")
