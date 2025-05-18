@@ -1,19 +1,15 @@
 #!/usr/bin/python3
-
 def safe_print_list(my_list=[], x=0):
-    """
-    Prints the first x elements of my_list on the same line.
-    Uses try/except to handle cases where x is greater than the list length.
-    Returns the actual number of elements printed.
-    """
-    count = 0  # initialize printed element count and index
-    while count < x:
+
+    count = 0
+    for element in range(x):
+        # We use the try statment incase the proccess is susseful
         try:
-            print("{}".format(my_list[count]), end="")  # print element without newline
-            count += 1  # increment count/index
-        except:
-            # reached end of list, no more elements to print
-            # reached end of list, no more elements to print
+            print("{}".format(my_list[element]), end="")
+            count += 1
+            # The exception encounters the error for out of range index
+            # it will break out of the loop if error occured
+        except IndexError:
             break
-    print()  # newline after printing all elements
-    return count  # return number of elements printed
+    print()
+    return count
