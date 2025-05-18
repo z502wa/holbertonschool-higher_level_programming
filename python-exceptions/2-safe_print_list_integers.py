@@ -6,19 +6,22 @@ def safe_print_list_integers(my_list=[], x=0):
     Skips non-integer values silently.
     Returns the number of integers printed.
     """
-    count = 0  # number of integers printed
-    idx = 0    # current index in list
+    count = 0
+    idx = 0
 
     while idx < x:
         try:
-            # try to format and print the element as integer
-            print("{:d}".format(my_list[idx]), end="")
+            value = my_list[idx]
+        except:
+            # index out of range, re-raise to allow exception for x > list length
+            raise
+        try:
+            print("{:d}".format(value), end="")
             count += 1
-        except (TypeError, ValueError):
+        except:
             # skip non-integer values silently
             pass
-        # do not catch IndexError: let it propagate if idx >= len(my_list)
         idx += 1
 
-    print()  # newline after printing all valid integers
+    print()
     return count
