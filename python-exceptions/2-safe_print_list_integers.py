@@ -2,18 +2,18 @@
 
 def safe_print_list_integers(my_list=[], x=0):
     """
-    Prints the first x elements of a list and only integers.
-    x represents the number of elements to access in my_list.
-    Returns the real number of integers printed.
+    Prints the first x elements of my_list on the same line if they are integers.
+    Skips non-integer values silently.
+    Returns the number of integers printed.
     """
     count = 0
-    for i in range(x):
+    idx = 0
+    while idx < x:
         try:
-            print("{:d}".format(my_list[i]), end="")
+            print("{:d}".format(my_list[idx]), end="")
             count += 1
-        except IndexError:
-            break
         except (TypeError, ValueError):
-            continue
+            pass
+        idx += 1
     print()
     return count
