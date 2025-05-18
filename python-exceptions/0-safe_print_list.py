@@ -13,6 +13,7 @@ def safe_print_list(my_list=[], x=0):
             count += 1  # increment count/index
         except:
             # reached end of list, no more elements to print
+            # reached end of list, no more elements to print
             break
     print()  # newline after printing all elements
     return count  # return number of elements printed
