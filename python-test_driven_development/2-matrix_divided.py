@@ -1,19 +1,19 @@
 #!/usr/bin/python3
 """
-Module: 2-matrix_divided
-Contains function matrix_divided that divides all elements of a matrix
+Module for matrix division
+Contains function to divide all elements of a matrix
 """
 
 def matrix_divided(matrix, div):
     """
-    Divides all elements of a matrix by a given number.
+    Divides all elements of a matrix by a number.
 
     Args:
-        matrix: List of lists containing integers or floats
+        matrix: List of lists of integers/floats
         div: Number to divide by (integer or float)
 
     Returns:
-        New matrix with all elements divided by div, rounded to 2 decimal places
+        New matrix with divided values rounded to 2 decimal places
 
     Raises:
         TypeError: If matrix is not list of lists of integers/floats,
