@@ -11,7 +11,7 @@ def safe_print_list(my_list=[], x=0):
         try:
             print("{}".format(my_list[count]), end="")  # print element without newline
             count += 1  # increment count/index
-        except IndexError:
+        except:
             # reached end of list, no more elements to print
             break
     print()  # newline after printing all elements
