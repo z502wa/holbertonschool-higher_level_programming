@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+# 3-square.py
 """
 This module defines a Square class with a private size attribute and validation,
 and provides a method to compute the area.
