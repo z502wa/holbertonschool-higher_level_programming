@@ -9,6 +9,7 @@ class Square:
     Represent a square with a validated private size attribute.
     """
 
+
     def __init__(self, size=0):
         """
         Initialize a new Square instance.
