@@ -50,7 +50,7 @@ class Rectangle:
 
         Raises:
             TypeError: if width is not an integer.
-            ValueError: if width < 0.
+            ValueError: if width must be >= 0.
         """
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
@@ -78,7 +78,7 @@ class Rectangle:
 
         Raises:
             TypeError: if height is not an integer.
-            ValueError: if height < 0.
+            ValueError: if height must be >= 0.
         """
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
@@ -143,10 +143,10 @@ class Rectangle:
             rect_2 (Rectangle): second rectangle.
 
         Raises:
-            TypeError: if rect_1 or rect_2 is not Rectangle.
+            TypeError: if rect_1 or rect_2 is not a Rectangle.
 
         Returns:
-            Rectangle: rect_1 if its area is >= rect_2's, else rect_2.
+            Rectangle: the rectangle with the larger area or rect_1 if equal.
         """
         if not isinstance(rect_1, Rectangle):
             raise TypeError("rect_1 must be an instance of Rectangle")
@@ -162,7 +162,7 @@ class Rectangle:
         Create and return a new Rectangle instance with width == height == size.
 
         Args:
-            size (int): size of the square sides (default 0).
+            size (int): size of each side (default 0).
 
         Returns:
             Rectangle: new rectangle instance.
