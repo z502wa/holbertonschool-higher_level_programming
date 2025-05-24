@@ -3,7 +3,7 @@
 # 10675@holbertonstudents.com
 """
 This module defines a Rectangle class with private width and height,
-and provides methods for area, perimeter, and string representation.
+provides methods for area, perimeter, and string representation.
 """
 
 
@@ -110,5 +110,4 @@ class Rectangle:
         lines = []
         for _ in range(self.__height):
             lines.append("#" * self.__width)
-        return "
-".join(lines)
+        return "\n".join(lines)
