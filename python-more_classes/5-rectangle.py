@@ -7,6 +7,7 @@ It provides methods for area, perimeter, string repr, eval repr,
 and prints a message when an instance is deleted.
 """
 
+
 class Rectangle:
     """
     Represent a rectangle by its width and height.
