@@ -2,8 +2,12 @@
 # Suhail Al-aboud
 # 10675@holbertonstudents.com
 """
-This module defines a Rectangle class with private width and height,
-providing methods for area, perimeter, string representation, and eval-based recreation.
+This module defines a Rectangle class with private width and height.
+It provides methods for:
+- area calculation
+- perimeter calculation
+- string representation
+- recreation via eval()
 """
 
 
@@ -101,9 +105,9 @@ class Rectangle:
 
     def __str__(self):
         """
-        Return the string representation of the rectangle using '#'.
+        Return the string representation using '#'.
 
-        If width or height is 0, returns an empty string.
+        Returns an empty string if width or height is 0.
         """
         if self.__width == 0 or self.__height == 0:
             return ""
@@ -112,9 +116,8 @@ class Rectangle:
 
     def __repr__(self):
         """
-        Return an official string representation that can recreate a new instance via eval().
+        Return an official string to recreate a new instance via eval().
 
-        Returns:
-            str: string in format Rectangle(width, height).
+        Example: Rectangle(width, height)
         """
         return f"Rectangle({self.__width}, {self.__height})"
