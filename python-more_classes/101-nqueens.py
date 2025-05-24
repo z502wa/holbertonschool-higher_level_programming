@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 # Suhail Al-aboud
 # 10675@holbertonstudents.com
-
 """
 Solves the N queens problem and prints all solutions.
 Usage: nqueens N
@@ -28,7 +27,6 @@ def is_safe(queens, row, col):
     return True
 
 
-
 def solve(n, row=0, queens=None):
     """
     Recursively place queens row by row and print each solution.
@@ -47,7 +45,6 @@ def solve(n, row=0, queens=None):
     for col in range(n):
         if is_safe(queens, row, col):
             solve(n, row + 1, queens + [col])
-
 
 
 def main():
