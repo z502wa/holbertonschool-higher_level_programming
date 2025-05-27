@@ -104,5 +104,5 @@ def shape_info(shape):
     Args:
         shape: Any object with area() and perimeter() methods
     """
-    print("Area: {}".format(shape.area()))
-    print("Perimeter: {}".format(shape.perimeter()))
+    print(f"Area: {shape.area()}")
+    print(f"Perimeter: {shape.perimeter()}")
