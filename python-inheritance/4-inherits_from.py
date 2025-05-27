@@ -4,21 +4,21 @@ Suhail Alaboud
 10675@holbertonstudents.com
 
 This module contains a function that checks if an object is an instance
-of a class or an instance of a class that inherited from the specified class
+of a class that inherited (directly or indirectly) from the specified class
 """
 
 
-def is_kind_of_class(obj, a_class):
+def inherits_from(obj, a_class):
     """
-    Returns True if the object is an instance of, or if the object is an
-    instance of a class that inherited from, the specified class
+    Returns True if the object is an instance of a class that inherited
+    (directly or indirectly) from the specified class; otherwise False
 
     Args:
         obj: The object to check
-        a_class: The class to check against
+        a_class: The class to check inheritance from
 
     Returns:
-        bool: True if obj is an instance of a_class or inherits from it,
+        bool: True if obj inherits from a_class (but is not the same type),
               False otherwise
     """
-    return isinstance(obj, a_class)
+    return isinstance(obj, a_class) and type(obj) is not a_class
