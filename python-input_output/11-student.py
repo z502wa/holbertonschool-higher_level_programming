@@ -2,9 +2,9 @@
 # 10675@holbertonstudents.com
 # Suhail Alaboud
 """
-Module: 10-student
-Defines a Student class with public attributes and
-filters JSON serialization based on provided attribute list.
+Module: 11-student
+Defines a Student class with serialization and
+deserialization to/from JSON representation.
 """
 
 
@@ -30,8 +30,9 @@ class Student:
         """
         Retrieve dictionary representation of a Student instance.
 
-        If attrs is a list of strings, only include those attributes.
-        Otherwise, include all public instance attributes.
+        If attrs is a list of strings, only include those
+        attributes. Otherwise, include all public instance
+        attributes.
 
         Args:
             attrs (list): Attribute names to filter by (optional).
@@ -40,10 +41,22 @@ class Student:
             dict: Dictionary of attribute names and values.
         """
         obj_dict = self.__dict__.copy()
-        if isinstance(attrs, list) and all(isinstance(a, str) for a in attrs):
+        if isinstance(attrs, list) and all(isinstance(a, str)
+                                           for a in attrs):
             filtered = {}
             for key in attrs:
                 if key in obj_dict:
                     filtered[key] = obj_dict[key]
             return filtered
         return obj_dict
+
+    def reload_from_json(self, json):
+        """
+        Replace all attributes of the Student instance.
+
+        Args:
+            json (dict): Dictionary of attribute names and new
+                values.
+        """
+        for key, value in json.items():
+            setattr(self, key, value)
