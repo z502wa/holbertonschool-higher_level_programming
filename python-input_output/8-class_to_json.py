@@ -2,21 +2,19 @@
 # 10675@holbertonstudents.com
 # Suhail Alaboud
 """
-Module: 7-add_item
-Script that adds all command-line arguments to a list
-and saves them to a JSON file named add_item.json.
+Module: 8-class_to_json
+Function that returns the dictionary description with simple data structures
+for JSON serialization of an object.
 """
-import sys
 
-save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
-load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
+def class_to_json(obj):
+    """
+    Return the attribute dictionary of an object for JSON serialization.
 
-filename = 'add_item.json'
+    Args:
+        obj: An instance of a class with serializable attributes.
 
-try:
-    items = load_from_json_file(filename)
-except FileNotFoundError:
-    items = []
-
-items.extend(sys.argv[1:])
-save_to_json_file(items, filename)
+    Returns:
+        dict: Mapping of attribute names to their values.
+    """
+    return obj.__dict__.copy()
