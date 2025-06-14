@@ -7,6 +7,7 @@ Function that returns the dictionary description with simple data structures
 for JSON serialization of an object.
 """
 
+
 def class_to_json(obj):
     """
     Return the attribute dictionary of an object for JSON serialization.
