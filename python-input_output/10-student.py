@@ -40,8 +40,7 @@ class Student:
             dict: Dictionary of attribute names and values.
         """
         obj_dict = self.__dict__.copy()
-        if isinstance(attrs, list) and all(isinstance(a, str)
-                                          for a in attrs):
+        if isinstance(attrs, list) and all(isinstance(a, str) for a in attrs):
             filtered = {}
             for key in attrs:
                 if key in obj_dict:
