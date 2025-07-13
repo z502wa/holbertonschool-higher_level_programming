@@ -5,7 +5,6 @@ const myObject = {
 };
 console.log(myObject);
 
-/* update value without var */
 myObject.value = 89;
 
 console.log(myObject);
