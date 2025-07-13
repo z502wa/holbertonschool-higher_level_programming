@@ -1,10 +1,9 @@
 #!/usr/bin/node
 const lines = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
-let output = '';
+let out = '';
 
-for (let i = 0; i < lines.length; i++) {
-  output += lines[i];
-  if (i < lines.length - 1) output += '\n';
+for (const line of lines) {
+  out += `${line}\n`;
 }
 
-console.log(output);
+console.log(out.trim());
