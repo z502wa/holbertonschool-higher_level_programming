@@ -9,32 +9,40 @@ from pathlib import Path
 from flask import Flask, render_template, abort
 
 app = Flask(__name__)
-
 DATA_FILE = Path(__file__).with_name("items.json")
 
 
 def load_items():
-    """Read the JSON file and return the list of items (or an empty list)."""
+    """Return the list of items from items.json (empty list on error)."""
     try:
         with DATA_FILE.open(encoding="utf-8") as fp:
             payload = json.load(fp)
-            # Expecting {"items": [...]}; fall back to []
-            return payload.get("items", [])
-    except (json.JSONDecodeError, FileNotFoundError) as exc:
-        # Log the error in real apps; for now abort with 500
-        abort(500, description=f"Data file error: {exc}")
+            return payload.get("items", []) if isinstance(payload, dict) else []
+    except (json.JSONDecodeError, FileNotFoundError):
+        return []
 
 
-@app.route("/items")
-def items():
-    """Render the items list page."""
-    return render_template("items.html", items=load_items())
-
-
-# Optional: keep previously implemented pages working when you run this file alone
+# ---- Basic pages needed by header.html ----
 @app.route("/")
 def home():
-    return "<p>Home – go to <a href='/items'>/items</a></p>"
+    return "<p>Home page</p>"
+
+
+@app.route("/about")
+def about():
+    return "<p>About page</p>"
+
+
+@app.route("/contact")
+def contact():
+    return "<p>Contact page</p>"
+
+
+# ---- Task‑02 endpoint ----
+@app.route("/items")
+def items():
+    """Render the dynamic items list (shows 200 even if list is empty)."""
+    return render_template("items.html", items=load_items())
 
 
 if __name__ == "__main__":
