@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Products</title>
+    <meta charset="utf-8">
+    <style>
+        table {border-collapse: collapse; width: 60%;}
+        th, td {border: 1px solid #999; padding: 8px; text-align: left;}
+        th {background: #eee;}
+    </style>
+</head>
+<body>
+{% if error %}
+    <h2 style="color:red">{{ error }}</h2>
+{% elif products %}
+    <h1>Product List</h1>
+    <table>
+        <thead>
+            <tr><th>Name</th><th>Category</th><th>Price ($)</th></tr>
+        </thead>
+        <tbody>
+        {% for p in products %}
+            <tr>
+                <td>{{ p.name or p['name'] }}</td>
+                <td>{{ p.category or p['category'] }}</td>
+                <td>{{ "%.2f"|format(float(p.price or p['price'])) }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No products to display.</p>
+{% endif %}
+</body>
+</html>

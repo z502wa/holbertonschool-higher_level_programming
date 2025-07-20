@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Items List</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    {# Re‑use header and footer if they exist. If not, remove these two lines. #}
+    {% include 'header.html' ignore missing %}
+    
+    <h1>Items List</h1>
+
+    {% if items %}
+        <ul>
+            {% for item in items %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No items found</p>
+    {% endif %}
+
+    {% include 'footer.html' ignore missing %}
+</body>
+</html>
