@@ -1,3 +1,9 @@
 #!/usr/bin/python3
+
+
 def copy_list(l):
-    return l.copy()
+    """generates a copy of a list
+    """
+    if not isinstance(l, list):
+        return None
+    return l[:]
